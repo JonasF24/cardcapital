@@ -1,0 +1,27 @@
+name: Daily Card Market Scrape
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r card-tracker-scraper/requirements.txt
+      - name: Run pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
+          TCGPLAYER_PUBLIC_KEY: ${{ secrets.TCGPLAYER_PUBLIC_KEY }}
+          TCGPLAYER_PRIVATE_KEY: ${{ secrets.TCGPLAYER_PRIVATE_KEY }}
+          CARDMARKET_APP_TOKEN: ${{ secrets.CARDMARKET_APP_TOKEN }}
+        run: python card-tracker-scraper/run_pipeline.py

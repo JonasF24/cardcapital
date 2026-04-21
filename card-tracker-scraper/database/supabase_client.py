@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+import logging
 import os
 
 from supabase import Client, create_client
 
 from utils.models import EnrichedSnapshot, Listing
+
+logger = logging.getLogger(__name__)
 
 
 class SupabaseStore:
@@ -14,6 +17,10 @@ class SupabaseStore:
         self.client: Client | None = None
         if self.url and self.key:
             self.client = create_client(self.url, self.key)
+        else:
+            logger.warning(
+                "SUPABASE_URL or SUPABASE_KEY is not set; persistence is disabled."
+            )
 
     def upsert_listings(self, listings: list[Listing]) -> None:
         if not self.client:

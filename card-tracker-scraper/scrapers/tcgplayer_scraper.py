@@ -7,7 +7,7 @@ from scrapers.base import BaseScraper
 from utils.models import Listing
 
 
-class TcgPlayerScraper(BaseScraper):
+class TCGPlayerScraper(BaseScraper):
     source = "tcgplayer"
 
     def __init__(self) -> None:

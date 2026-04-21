@@ -6,7 +6,7 @@ from scrapers.base import BaseScraper
 from utils.models import Listing
 
 
-class PsaScraper(BaseScraper):
+class PSAScraper(BaseScraper):
     source = "psa"
 
     def fetch(self, card_name: str) -> list[Listing]:

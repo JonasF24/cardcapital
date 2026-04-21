@@ -19,4 +19,4 @@ Automated backend pipeline for collecting daily trading card market data from mu
 - `enrichment/`: Gemini enrichment logic
 - `database/`: Supabase persistence
 - `utils/`: shared data models and helpers
-- `.github/workflows/daily-scrape.yml`: automation workflow
+- `../.github/workflows/daily-scrape.yml`: automation workflow

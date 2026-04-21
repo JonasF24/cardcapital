@@ -1,15 +1,11 @@
 from __future__ import annotations
 
-import os
 from statistics import mean
 
 from utils.models import EnrichedSnapshot, Listing
 
 
 class GeminiEnricher:
-    def __init__(self) -> None:
-        self.api_key = os.getenv("GEMINI_API_KEY", "")
-
     def enrich(self, source: str, card_name: str, listings: list[Listing]) -> EnrichedSnapshot:
         prices = [entry.price for entry in listings if entry.price > 0]
         if not prices:

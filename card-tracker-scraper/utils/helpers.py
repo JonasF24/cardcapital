@@ -16,7 +16,7 @@ class RateLimiter:
 
 
 def listing_fingerprint(listing: Listing) -> str:
-    payload = f"{listing.source}|{listing.listing_id}|{listing.card_name}|{listing.price}"
+    payload = f"{listing.source}|{listing.listing_id}"
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 

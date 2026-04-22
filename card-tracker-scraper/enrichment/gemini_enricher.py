@@ -84,7 +84,7 @@ class GeminiEnricher:
         # Derive snapshot currency from listings: if all listings share a
         # non-default currency (e.g. EUR from CardMarket) use that; otherwise USD.
         currencies = {entry.currency for entry in listings if entry.currency}
-        snapshot_currency = currencies.pop() if len(currencies) == 1 else "USD"
+        snapshot_currency = next(iter(currencies)) if len(currencies) == 1 else "USD"
 
         return EnrichedSnapshot(
             source=source,

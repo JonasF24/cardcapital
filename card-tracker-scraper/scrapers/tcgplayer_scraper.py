@@ -39,8 +39,7 @@ class TCGPlayerScraper(BaseScraper):
             )
 
         access_token = self._get_access_token()
-        token_type = "Bearer"
-        headers = {"Authorization": f"{token_type} {access_token}"}
+        headers = {"Authorization": f"Bearer {access_token}"}
 
         search_resp = requests.get(
             f"{_TCGPLAYER_API_BASE}/catalog/products",

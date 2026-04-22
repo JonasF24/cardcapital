@@ -517,7 +517,7 @@ Dashboard use: Overall performance, market correlation
 
 ## 📄 License & Attribution
 
-**Card Capital** - Professional Trading Card Trading Card Investment Platform
+**Card Capital** - Professional Trading Card Investment Platform
 Created for card investors and traders worldwide
 
 ---
